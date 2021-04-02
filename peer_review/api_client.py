@@ -1,7 +1,6 @@
 import requests
 import json
-import os
-
+import config
 
 class ApiClient():
     def __init__(self, base_url, key):
@@ -23,17 +22,5 @@ class ApiClient():
         return json.loads(resp.text)
 
 
-api_key = None
-settings_file = os.path.join(os.path.dirname(__file__), '.api_client')
-if os.path.isfile(settings_file):
-    with open(settings_file) as f:
-        settings = json.load(f)
-        api_key = settings.get('api_key')
-
-if not api_key:
-    api_key = input("Enter API Key:")
-    settings = {'api_key': api_key}
-    with open(settings_file, 'w') as f:
-        json.dump(settings, f)
-
-client = ApiClient("http://conference-api.prod.s2.allenai.org/peer-review", api_key)
+def client():
+    return ApiClient(f"{config.get('host')}/peer-review", config.get('api_key'))
