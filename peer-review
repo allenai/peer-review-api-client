@@ -1,5 +1,5 @@
 #!/bin/bash
 
 DIR=$(cd `dirname $0` && pwd)
-/usr/bin/env python $DIR/peer_review/__main__.py $*
+python $DIR/peer_review/__main__.py $*
 
