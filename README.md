@@ -4,6 +4,8 @@ The [Allen Institute for AI](http://allenai.org) offers an API to aid conference
 
 The full API documentation can be found [here](https://partner.semanticscholar.org/v1/peer-review).
 
+This repo implements a simple command-line client for convenient access to the API.
+
 For access to the API, contact our [partner team](https://pages.semanticscholar.org/data-partners). There is no charge for non-commercial use. Restrictions may apply to commercial use.
 
 ## Usage
@@ -22,8 +24,7 @@ Given a reviewer pool and a submission pool, you can make two types of requests:
 
 1. Detect conflicts of interest, based on a past co-author relationship between a reviewer and a submission's authors
 
-1. Compute matching scores indicating the likelihood that a reviewer is familiar with the subject matter of a submission, 
-based on the reviewer's publication history
+1. Compute matching scores indicating a similarity between the subject matter of a submission and a reviewer's publication history
 
 Both of these calculations rely on supplying the Semantic Scholar author ID for reviewers. Conflict of interest
  detection also relies on having Semantic Scholar author IDs for submission authors. 
