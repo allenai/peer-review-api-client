@@ -19,9 +19,10 @@ def list_submissions(pool_id):
 
 def print_pools():
     pools = list()
-    writer = csv.DictWriter(sys.stdout, fieldnames=['id', 'name'])
+    writer = csv.DictWriter(sys.stdout, fieldnames=['id', 'name', 'size'])
     writer.writeheader()
     for r in pools:
+        r['size'] = client().get(f'submission-pool/{r["id"]}/size')
         writer.writerow(r)
 
 def print_submissions(pool_id):
