@@ -15,7 +15,7 @@ def print_requests():
                             fieldnames=['id', 'status', 'reviewerPoolId', 'submissionPoolId',
                                         'configuration', 'submitted'])
     writer.writeheader()
-    for r in requests():
+    for r in requests:
         writer.writerow(r)
 
 
