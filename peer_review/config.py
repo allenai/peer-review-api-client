@@ -30,7 +30,7 @@ def configure():
         else:
             return input(f"{msg}:")
 
-    api_key = prompt("Enter API Key", "api_key")
+    api_key = prompt("Enter API Key", "api_key", "zq83r8JXjm1azwm0rmA5l6EMAE80sgfK8u3clGFL")
     host = prompt("Enter host", "host", "http://conference-api.prod.s2.allenai.org")
     _config = {'api_key': api_key, 'host': host}
 
