@@ -22,6 +22,7 @@ def submit_request(reviewer_pool_id, submission_pool_id):
 def list_requests():
     return client().get('reviewer-match')
 
+
 def print_requests():
     requests = list_requests()
     writer = csv.DictWriter(sys.stdout,
@@ -31,14 +32,26 @@ def print_requests():
     for r in requests:
         writer.writerow(r)
 
-def download_result(request_id):
-    return client().get(f'reviewer-match/{request_id}/result')
 
-def print_result(request_id):
-    results = download_result(request_id)
-    writer = csv.DictWriter(sys.stdout,
-                            fieldnames=['reviewerId', 'reviewerExternalId', 'submissionId', 'submissionExternalId', 'score', 'reason'])
-    writer.writeheader()
-    for row in results:
-        writer.writerow(row)
+def fetch_batch(request_id, start):
+    return client().get(f'reviewer-match/{request_id}/result?start={start}')
 
+
+def download_result(request_id, output_file):
+    with open(output_file, 'w') as f:
+        writer = csv.DictWriter(f,
+                                fieldnames=['reviewerId', 'reviewerExternalId', 'submissionId',
+                                            'submissionExternalId', 'score', 'reason'])
+        writer.writeheader()
+        next = 0
+        total = 0
+        print("Downloading", end="", flush=True)
+        while next is not None:
+            print("...", end="", flush=True)
+            batch = fetch_batch(request_id, next)
+            for row in batch['rows']:
+                writer.writerow(row)
+            total += len(batch['rows'])
+            print(total, end="", flush=True)
+            next = batch.get('next')
+        print("\nDone!")

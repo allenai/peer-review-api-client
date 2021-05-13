@@ -97,7 +97,7 @@ def list():
 @conflict_of_interest.command()
 @click.option("--request-id", help="ID of the request", required=True, type=int)
 def download(request_id):
-    coi.print_result(request_id)
+    coi.download_result(request_id)
 
 @reviewer_match.command()
 @click.option("--reviewer-pool-id", help="ID of the reviewer pool", required=True, type=int)
@@ -112,8 +112,9 @@ def list():
 
 @reviewer_match.command()
 @click.option("--request-id", help="ID of the request", required=True, type=int)
-def download(request_id):
-    rm.print_result(request_id)
+@click.option("--output", help="Output file for downloaded results", required=True)
+def download(request_id, output):
+    rm.download_result(request_id, output)
 
 if __name__ == "__main__":
     app(prog_name="peer-review")
