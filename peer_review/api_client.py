@@ -23,4 +23,4 @@ class ApiClient():
 
 
 def client():
-    return ApiClient(f"{config.get('host')}/peer-review", config.get('api_key'))
+    return ApiClient(f"{config.get('url')}", config.get('api_key'))

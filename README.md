@@ -1,10 +1,10 @@
 # AI2 API for Peer Review Management
 
-The [Allen Institute for AI](http://allenai.org) offers an API to aid conference chairs with matching conference submissions with potential reviewers.
+As part of its public API, the [Allen Institute for AI](http://allenai.org) offers a service to aid conference chairs with matching conference submissions with potential reviewers.
 
-The full API documentation can be found [here](https://partner.semanticscholar.org/v1/peer-review).
+The full documentation can be found [here](https://partner.semanticscholar.org/v1/peer-review).
 
-This repo implements a simple command-line client for convenient access to the API. The provided API key gives access to a shared account for limited trial use. 
+This repo implements a simple command-line client for convenient access to the service. The provided API key gives access to a shared account for limited trial use. 
 
 For full access to the API, contact our [partner team](https://pages.semanticscholar.org/data-partners). There is no charge for non-commercial use. Restrictions may apply to commercial use.
 
