@@ -2,7 +2,7 @@
 
 As part of its public API, the [Allen Institute for AI](http://allenai.org) offers a service to aid conference chairs with matching conference submissions with potential reviewers.
 
-The full documentation can be found [here](https://partner.semanticscholar.org/v1/peer-review).
+The full documentation can be found [here](https://partner.semanticscholar.org/peer-review/v1).
 
 This repo implements a simple command-line client for convenient access to the service. The provided API key gives access to a shared account for limited trial use. 
 
