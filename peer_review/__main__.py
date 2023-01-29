@@ -96,8 +96,9 @@ def list():
 
 @conflict_of_interest.command()
 @click.option("--request-id", help="ID of the request", required=True, type=int)
-def download(request_id):
-    coi.download_result(request_id)
+@click.option("--output", help="Output file for downloaded results", required=True)
+def download(request_id,output):
+    coi.download_result(request_id,output)
 
 @reviewer_match.command()
 @click.option("--reviewer-pool-id", help="ID of the reviewer pool", required=True, type=int)
